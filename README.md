@@ -198,7 +198,7 @@ Azure Data Factory (ADF) is used as the orchestration and data integration servi
 - Databricks Notebook Activity (Bronze → Silver)
 - Databricks Notebook Activity (Silver → Gold)
 
-👉 Simple and easy to manage
+→ Simple and easy to manage
 
 ### Approach 2: Modular Pipeline + Databricks Workflow
 - Copy Activity (Azure SQL → ADLS Bronze)
@@ -209,7 +209,7 @@ Azure Data Factory (ADF) is used as the orchestration and data integration servi
   - Transformation (Bronze → Silver) 
   - Fraud Detection (Silver → Gold)
 
-👉 More scalable and production-ready
+→ More scalable and production-ready
 
 ### Linked Services & Datasets
 
@@ -234,6 +234,8 @@ Power BI is used for data visualization and reporting, enabling stakeholders to 
 
 ### Fraud Analysis Dashboard
 
+
+
 <img width="1458" height="816" alt="Fraud Analysis Dashboard" src="https://github.com/user-attachments/assets/951f45fa-c119-4361-b470-43cc7438d84d" />
 
 
@@ -243,11 +245,11 @@ Power BI is used for data visualization and reporting, enabling stakeholders to 
 ## Project Structure
 
 ```
-banking-fraud-detection-rule-based/
+Bank-Transactions-Fraud-Detection-System/
 │
 ├── data/
 │   └── sample/
-│       └── credit_card_transactions.csv
+│       └── credit_card_transactions_dataset
 │
 ├── notebooks/
 │   ├── 00-Configurations.ipynb
