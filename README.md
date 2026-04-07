@@ -247,6 +247,8 @@ banking-fraud-detection-rule-based/
 │   ├── ADLS-Container.png
 │   ├── Project-Resource-Group.png
 │   └── Databricks-Job-Tasks.png
+│   └── Azure SQL - DB.png
+│   └── Pipeline Logs Table.png
 │
 ├── docs/
 │   └── architecture.png
