@@ -10,13 +10,26 @@ The pipeline is designed using the **Medallion Architecture (Bronze, Silver, Gol
 ## Architecture
 
 **End-to-End Flow:**
+  
+```
+Source (CSV / Azure SQL)
+        │
+        ▼
+Azure Data Factory (Ingestion & Orchestration)
+        │
+        ▼
+Azure Data Lake Storage (Bronze → Silver → Gold)
+        │
+        ▼
+Azure Databricks (PySpark Transformations)
+        │
+        ▼
+Delta Lake + Unity Catalog
+        │
+        ▼
+Power BI Dashboard (Visualization)
+```
 
-→ Source Data (CSV / Azure SQL)  
-→ Azure Data Factory (ADF) – Data Ingestion & Orchestration  
-→ Azure Data Lake Storage (ADLS) – Bronze, Silver and Gold Layer  
-→ Azure Databricks (PySpark) – Transformation  
-→ Delta Tables  
-→ Power BI – Visualization  
 
 ---
 
@@ -25,7 +38,6 @@ The pipeline is designed using the **Medallion Architecture (Bronze, Silver, Gol
 ### Bronze Layer (Raw Data)
 - Stores raw ingested transaction data
 - No transformations applied
-- Data stored in **Parquet format**
 
 ### Silver Layer (Cleaned Data)
 - Data is cleaned and standardized
@@ -75,7 +87,7 @@ Tools & technologies used:
 
 Azure SQL Database is used as the primary source system in this project. It stores structured bank transaction data before it is ingested into the data pipeline.
 
-Purpose in This Project:
+**Purpose:**
 - Acts as the source of truth for transaction data
 - Stores raw transactional records in a structured format
 - Enables seamless integration with Azure Data Factory (ADF) for ingestion
@@ -87,6 +99,12 @@ Purpose in This Project:
 ## Azure Databricks 
 
 Azure Databricks is used as the core data processing engine to transform and analyze transaction data using PySpark.
+
+**Implementation:**
+
+- All transformations from Bronze → Silver → Gold are implemented using PySpark with OOP principles (classes, reusable functions, modular design).
+- Data is stored in respective layers as external tables in ADLS.
+- Pipeline logs are maintained in a managed table for monitoring and debugging.
 
 
 ---
@@ -249,9 +267,6 @@ banking-fraud-detection-rule-based/
 │   └── Databricks-Job-Tasks.png
 │   └── Azure SQL - DB.png
 │   └── Pipeline Logs Table.png
-│
-├── docs/
-│   └── architecture.png
 │
 └── README.md
 ```
